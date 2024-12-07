@@ -40,9 +40,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Learn More
 
-To learn more about the technologies used:
+ENV STRUCTURE
 
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Express.js Documentation](https://expressjs.com/)
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+PORT=5000
+MONGODB_URI=mongodb+srv://xx:xx@xx.xx.xx.xx/registeration-portal
+NODE_ENV=development
