@@ -57,7 +57,8 @@ router.post('/register/new-team', async (req, res) => {
     res.status(201).json({
       message: 'Team created and user registered successfully',
       teamCode: team.teamCode,
-      teamName: team.teamName
+      teamName: team.teamName,
+      teamId: team._id
     });
   } catch (error) {
     console.error('Error in new team registration:', error);
@@ -115,10 +116,25 @@ router.post('/register/join-team', async (req, res) => {
 
     res.status(201).json({
       message: 'Successfully joined team',
-      teamName: team.teamName
+      teamName: team.teamName,
+      teamId: team._id
     });
   } catch (error) {
     console.error('Error in joining team:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Get team details
+router.get('/team/:id', async (req, res) => {
+  try {
+    const team = await Team.findById(req.params.id).populate('members');
+    if (!team) {
+      return res.status(404).json({ error: 'Team not found' });
+    }
+    res.json(team);
+  } catch (error) {
+    console.error('Error fetching team details:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });

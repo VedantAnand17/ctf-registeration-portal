@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Navbar from '../components/Navbar';
 import RegistrationForm from '../components/RegisterationForm';
+import TeamDetails from '../components/TeamDetails';
 
 function Home() {
   return (
@@ -15,6 +16,7 @@ function Home() {
         <main className="container mx-auto px-4 py-8">
           <Routes>
             <Route path="/" element={<RegistrationForm />} />
+            <Route path="/team/:teamId" element={<TeamDetails />} />
           </Routes>
         </main>
       </div>

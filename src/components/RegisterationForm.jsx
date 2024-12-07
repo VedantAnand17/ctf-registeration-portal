@@ -2,8 +2,10 @@
 
 import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const RegistrationForm = () => {
+  const navigate = useNavigate();
   const [registrationType, setRegistrationType] = useState('new');
   const [formData, setFormData] = useState({
     name: '',
@@ -39,14 +41,9 @@ const RegistrationForm = () => {
         toast.success(`Your team code is: ${data.teamCode}`);
       }
       
-      // Reset form after successful submission
-      setFormData({
-        name: '',
-        email: '',
-        collegeName: '',
-        teamName: '',
-        teamCode: ''
-      });
+      // Navigate to team details page
+      navigate(`/team/${data.teamId}`);
+      
     } catch (error) {
       toast.error(error.message);
     }
