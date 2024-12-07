@@ -43,5 +43,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ENV STRUCTURE
 
 PORT=5000
+
 MONGODB_URI=mongodb+srv://xx:xx@xx.xx.xx.xx/registeration-portal
+
 NODE_ENV=development
